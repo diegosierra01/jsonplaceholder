@@ -2,7 +2,7 @@
   <div id="app" class="container">
     <Encabezado></Encabezado>
       <div id="nav">
-        <router-link to="/">Publicaciones</router-link>
+        <router-link to="/">Publicaciones</router-link> | 
         <router-link to="/albums">Album</router-link>    
       </div>
       <router-view></router-view>

@@ -13,9 +13,10 @@ export default new Router({
            component: () => import('./views/Home.vue') 
         },
         {
-            path: '/albums',
+            path: '/albums/:id',
             name: 'albums',
             component: () => import('./views/Album.vue')
-        }
+        },
+        
     ]
 })
