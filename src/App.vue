@@ -3,7 +3,7 @@
     <Encabezado></Encabezado>
       <div id="nav">
         <router-link to="/">Publicaciones</router-link> | 
-        <router-link to="/albums">Album</router-link>    
+        <router-link to="/galery">Galería</router-link>    
       </div>
       <router-view></router-view>
     <!--HelloWorld msg="Welcome to Your Vue.js App"/-->
