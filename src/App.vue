@@ -1,7 +1,11 @@
 <template>
   <div id="app" class="container">
     <Encabezado></Encabezado>
-    <Lista></Lista>
+      <div id="nav">
+        <router-link to="/">Publicaciones</router-link>
+        <router-link to="/albums">Album</router-link>    
+      </div>
+      <router-view></router-view>
     <!--HelloWorld msg="Welcome to Your Vue.js App"/-->
   </div>
 </template>
