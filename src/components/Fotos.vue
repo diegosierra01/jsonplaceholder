@@ -7,9 +7,10 @@
                     <b-img v-bind:src="photo.url" fluid alt="Fluid image"></b-img>
                 </b-col>
                 <b-col cols="6" md="4">
-                    <button>Eliminar</button>
-                    <br><br>
-                    <button>Editar</button>
+                    <b-button-group vertical>
+                        <button variant="primary">Editar</button>
+                        <button variant="success">Eliminar</button>
+                    </b-button-group>
                 </b-col> 
             </b-row>
         </b-container>    
@@ -26,19 +27,17 @@ export default {
             photo: []
         }
     },
-    watch:{
-        $route (to, from){
-            let vue = this;
-            axios
-                .get('https://jsonplaceholder.typicode.com/photos/'+this.$route.params.id)
-                .then(function(response) {
-                    vue.photo = response.data
-                    console.log(vue.photo)
-                })
-                .catch(error => { 
-                    console.log(error)
-                })
-        }
+    mounted() {
+        let vue = this;
+        axios
+            .get('https://jsonplaceholder.typicode.com/photos/'+this.$route.params.id)
+            .then(function(response) {
+                vue.photo = response.data
+                console.log(vue.photo)
+            })
+            .catch(error => { 
+                console.log(error)
+            })    
     }   
 }
 </script>

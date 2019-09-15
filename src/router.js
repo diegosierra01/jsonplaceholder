@@ -13,14 +13,14 @@ export default new Router({
            component: () => import('./views/Home.vue') 
         },
         {
+            path: '/galery/:albumId/albums/:id',
+            name: 'albums',
+            component: () => import('./views/Album.vue')
+        },
+        {
             path: '/galery',
             name: 'galery',
             component: () => import('./views/Galery.vue')
-        },
-        {
-            path: '/albums/:id',
-            name: 'albums',
-            component: () => import('./views/Album.vue')
         },
         
     ]

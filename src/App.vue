@@ -3,7 +3,7 @@
     <Encabezado></Encabezado>
     
     <!--img alt="Vue logo" src="@/assets/logo.png"-->
-    <router-view></router-view>
+    <router-view :key="$route.fullPath"></router-view>
     <!--HelloWorld msg="Welcome to Your Vue.js App"/-->
   </div>
 </template>

@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h1>Album: </h1>
+        <h1>Album: {{ $route.params.albumId }} </h1>
 
         <b-container>
             <b-row>
                 <b-col>
-                    <router-link :to="{ name: 'albums', params: {id:item.id} }" 
+                    <router-link :to="{ name: 'albums', params: {albumId:item.albumId, id:item.id} }" 
                         v-for="(item, index) of photos" :key="index">                        
                         <b-img thumbnail fluid v-bind:src="item.thumbnailUrl" alt="Image 1"></b-img>
                     </router-link>
@@ -17,7 +17,7 @@
         </b-container>
 
 
-        <button @click="galery"> Album </button>
+        <button @click="galery"> Galería </button>
         
     </div>   
 </template>
@@ -43,7 +43,7 @@ export default {
     mounted() {
         let vue = this;
         axios
-            .get('https://jsonplaceholder.typicode.com/photos?albumId=1')
+            .get('https://jsonplaceholder.typicode.com/photos?albumId='+this.$route.params.albumId)
             .then(function(response) {
                 vue.photos = response.data
             })
