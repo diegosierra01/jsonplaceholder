@@ -2,12 +2,21 @@
     <div>
         <h1>Album: </h1>
 
-        <router-link :to="{ name: 'albums', params: {id:item} }" 
-            v-for="(item, index) of fotosArr" :key="index">
-            <button>Foto {{item}}</button>
-        </router-link>
+        <b-container>
+            <b-row>
+                <b-col>
+                    <router-link :to="{ name: 'albums', params: {id:item.id} }" 
+                        v-for="(item, index) of photos" :key="index">                        
+                        <b-img thumbnail fluid v-bind:src="item.thumbnailUrl" alt="Image 1"></b-img>
+                    </router-link>
+                </b-col>
+                <b-col>
+                    <Fotos />
+                </b-col>
+            </b-row>
+        </b-container>
 
-        <Fotos />
+
         <button @click="galery"> Album </button>
         
     </div>   
@@ -15,6 +24,7 @@
 
 <script>
 import Fotos from "@/components/Fotos.vue";
+import axios from 'axios'
 
 export default {
     components:{
@@ -22,13 +32,24 @@ export default {
     },
     data(){
         return{
-            fotosArr: [1, 2, 3]
+            photos: []
         }
     },
     methods: {
         galery(){
             this.$router.push('/galery')
         }
+    },
+    mounted() {
+        let vue = this;
+        axios
+            .get('https://jsonplaceholder.typicode.com/photos?albumId=1')
+            .then(function(response) {
+                vue.photos = response.data
+            })
+            .catch(error => { 
+                console.log(error)
+            })
     }   
 }
 </script>
