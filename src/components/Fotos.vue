@@ -1,6 +1,6 @@
 <template>
     <div class="sticky-top sticky-offset">
-        <h1>Fotografía: {{ photo.title }} </h1>
+        <h4>Fotografía: {{ photo.title }} </h4>
         <b-container class="bv-example-row">
             <b-row>
                 <b-col cols="12" md="8">
@@ -8,8 +8,8 @@
                 </b-col>
                 <b-col cols="6" md="4">
                     <b-button-group vertical>
-                        <button variant="primary">Editar</button>
-                        <button variant="success">Eliminar</button>
+                        <b-button variant="primary">Editar</b-button>
+                        <b-button variant="success">Eliminar</b-button>
                     </b-button-group>
                 </b-col> 
             </b-row>

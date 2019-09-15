@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Album: {{ $route.params.albumId }} </h1>
-
+        <hr>
         <b-container>
             <b-row>
                 <b-col>
@@ -15,9 +15,6 @@
                 </b-col>
             </b-row>
         </b-container>
-
-
-        <button @click="galery"> Galería </button>
         
     </div>   
 </template>
@@ -33,11 +30,6 @@ export default {
     data(){
         return{
             photos: []
-        }
-    },
-    methods: {
-        galery(){
-            this.$router.push('/galery')
         }
     },
     mounted() {
