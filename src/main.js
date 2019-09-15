@@ -5,7 +5,13 @@ import Axios from 'axios'
 import VueAxios from 'vue-axios'
 import router from './router'
 
-Vue.use(VueAxios, Axios)
+import BootstrapVue from 'bootstrap-vue'
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(BootstrapVue);
+Vue.use(VueAxios, Axios);
 
 Vue.config.productionTip = false
 
