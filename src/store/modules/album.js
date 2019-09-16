@@ -5,12 +5,12 @@ export default {
         album: []
     },
     actions: {
-        loadAlbum({commit}, id){
+        loadAlbum({commit}, albumId){
             axios
-            .get('https://jsonplaceholder.typicode.com/photos?albumId='+id)
+            .get('https://jsonplaceholder.typicode.com/photos?albumId='+albumId)
             .then(data => {                
                 let album = data.data
-                commit('SET_album', album)
+                commit('SET_ALBUM', album)
             })
             .catch(error => {
                 console.log(error)
@@ -18,7 +18,7 @@ export default {
         }
     },
     mutations: {
-        SET_album (state, album) {
+        SET_ALBUM (state, album) {
             state.album = album
             console.log(state.album)
         }
