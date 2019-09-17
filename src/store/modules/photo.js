@@ -1,26 +1,27 @@
-import axios from 'axios'
+import axios from 'axios'  
+import api from '@/api/fetch.js'
 
-export default {
-    state:{
-        photo: []
-    },
-    actions: {
-        loadPhoto({commit}, id){
-            axios
-            .get('https://jsonplaceholder.typicode.com/photos/'+id)
-            .then(data => {                
-                let photo = data.data
-                commit('SET_PHOTO', photo)
+const state = {
+    photo: []
+}
+
+const actions = {
+    loadPhoto({commit}, id){
+        api.Photo(id)
+            .then(res => {
+                commit('SET_PHOTO', res)
             })
-            .catch(error => {
-                console.log(error)
-            })  
-        }
-    },
-    mutations: {
-        SET_PHOTO (state, photo) {
-            state.photo = photo
-            console.log(state.photo)
-        }
-    }   
+    }
+}
+
+const mutations = {
+    SET_PHOTO (state, photo) {
+        state.photo = photo
+    }
+}   
+    
+export default {
+    state,
+	actions,
+	mutations
 }

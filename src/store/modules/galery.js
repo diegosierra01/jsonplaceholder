@@ -20,7 +20,6 @@ export default {
     mutations: {
         SET_GALERY (state, galery) {
             state.galery = galery
-            console.log(state.galery)
         }
     }   
 }

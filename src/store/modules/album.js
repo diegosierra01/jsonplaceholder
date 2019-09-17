@@ -20,7 +20,6 @@ export default {
     mutations: {
         SET_ALBUM (state, album) {
             state.album = album
-            console.log(state.album)
         }
     }   
 }
