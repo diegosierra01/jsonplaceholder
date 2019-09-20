@@ -11,11 +11,11 @@ function assign(payload){
     if(payload == 'fotos'){
         route =  `/photos/${payload.id}`
     }else if(router == 'albums'){
-        payload=  `/photos/${payload.id}`
+        payload=  `/albums/${payload.id}`
     }else if(router == 'posts'){
-        payload=  `/photos/${payload.id}`
+        payload=  `/posts/${payload.id}`
     }else if(router == 'comments'){
-        payload=  `/photos/${payload.id}`
+        payload=  `/comments/${payload.id}`
     }
     return {
         method: 'get',
