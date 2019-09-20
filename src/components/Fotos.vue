@@ -1,10 +1,10 @@
 <template>
     <div class="sticky-top sticky-offset">
-        <h4>Fotografía: {{ photo.photo.title }} </h4>
+        <h4>Fotografía: {{ resource.resource.title }} </h4>
         <b-container class="bv-example-row">
             <b-row>
                 <b-col cols="12" md="8">
-                    <b-img v-bind:src="photo.photo.url" fluid alt="Fluid image"></b-img>
+                    <b-img v-bind:src="resource.resource.url" fluid alt="Fluid image"></b-img>
                 </b-col>
                 <b-col cols="6" md="4">
                     <b-button-group vertical>
@@ -23,11 +23,17 @@ import {mapState} from 'vuex'
 export default {
     name: 'Fotos',
     mounted() {
-        this.$store.dispatch('loadPhoto', this.$route.params.id) 
+        let id = this.$route.params.id;
+        let router =  this.$route.name;
+        let params = {
+            id,
+            router
+        };
+        this.$store.dispatch('loadResource', params) 
     },
     computed: {
         ...mapState([
-            'photo'
+            'resource'
         ])
     }   
 }

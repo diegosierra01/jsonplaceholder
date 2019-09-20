@@ -17,7 +17,8 @@ axios.interceptors.request.use((config) => {
 	return Promise.reject(error);
 });
 
-export function fetchPost(url, params) {
+//POST Y PUT
+export function fetchPost(url, params, method) {
 	return new Promise((resolve, reject) => {
 		axios.post(url, params)
 			.then(response => {
@@ -31,24 +32,29 @@ export function fetchPost(url, params) {
 	})
 }
 
-export function fetchGet(url, param) {
-  return new Promise((resolve, reject) => {
-    axios.get(url, {
-        params: param
-      })
-      .then(response => {
-        resolve(response.data)
-      }, err => {
-        reject(err)
-      })
-      .catch((error) => {
-        reject(error)
-      })
-  })
+//GET Y DELETE
+export function fetch(url, param, method) {
+	console.log(method)
+	return new Promise((resolve, reject) => {	   
+		axios.get(url, {
+			method: method,
+			params: param
+		})
+		.then(response => {
+			resolve(response.data)
+		}, err => {
+			reject(err)
+		})
+		.catch((error) => {
+			reject(error)
+		})
+	})
 }
 
 export default {
-	Photo(id) {
+	fetchGet,
+	fetchPost,
+	Source(path) {
 		return fetchGet(`/photos/${id}`)
 	}
 }

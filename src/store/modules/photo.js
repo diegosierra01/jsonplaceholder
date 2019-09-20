@@ -1,22 +1,38 @@
-import axios from 'axios'  
 import api from '@/api/fetch.js'
+import Resource from '@/api/resource.js'
 
 const state = {
-    photo: []
+    resource: []
 }
 
 const actions = {
-    loadPhoto({commit}, id){
-        api.Photo(id)
-            .then(res => {
-                commit('SET_PHOTO', res)
-            })
+    async loadResource({commit}, payload){
+        var nuevo = new Resource()
+        let method = 'get';
+        let route =  `/photos/${payload.id}`;
+        let params = {
+            method,
+            route
+        };
+        let res = await nuevo.runWithoutParams(params)
+        commit('SET_RESOURCE', res)
+        console.log(res)
+        /*api.fetchGet(`/photos/${payload.id}`)
+        .then(res => {
+            commit('SET_RESOURCE', res)
+        })
+        /**if (palyload.router == 'sport') {
+			api.SportsDetail(palyload.id)
+		} else if (palyload.router == 'travel') {
+
+        }**/
     }
 }
 
+
 const mutations = {
-    SET_PHOTO (state, photo) {
-        state.photo = photo
+    SET_RESOURCE (state, resource) {
+        state.resource = resource
     }
 }   
     
