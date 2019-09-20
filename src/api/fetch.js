@@ -18,7 +18,7 @@ axios.interceptors.request.use((config) => {
 });
 
 //POST Y PUT
-export function fetchPost(url, params, method) {
+export function fetchData(url, params, method) {
 	return new Promise((resolve, reject) => {
 		axios.post(url, params)
 			.then(response => {
@@ -52,8 +52,8 @@ export function fetch(url, param, method) {
 }
 
 export default {
-	fetchGet,
-	fetchPost,
+	fetch,
+	fetchData,
 	Source(path) {
 		return fetchGet(`/photos/${id}`)
 	}

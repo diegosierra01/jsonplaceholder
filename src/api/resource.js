@@ -7,12 +7,12 @@ class Resource {
     }
 
     runWithoutParams(params) {
-        let answer = api.fetchGet(params.route, params.method)
+        let answer = api.fetch(params.route, params.method)
         return answer
     }
 
     runWithParams(method, route, data){
-        let answer = api.fetchPost(params.route, params.method)
+        let answer = api.fetchData(params.route, params.method, params.data)
         return answer
     }
     

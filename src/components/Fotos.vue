@@ -24,7 +24,7 @@ export default {
     name: 'Fotos',
     mounted() {
         let id = this.$route.params.id;
-        let router =  this.$route.name;
+        let router =  'fotos';
         let params = {
             id,
             router

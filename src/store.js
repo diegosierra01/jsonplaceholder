@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import resource from '@/store/modules/photo'
+import resource from '@/store/modules/resourceConsulted'
 import galery from '@/store/modules/galery'
 import album from '@/store/modules/album'
 
