@@ -3,42 +3,40 @@ import Resource from '@/api/resource.js'
 var nuevo = new Resource()
 
 const state = {
-    resource: []
+    list: []
 }
 
 function assign(payload){
     let route
     if(payload.router == 'fotos'){
-        route = `/photos/${payload.id}`
+        route = `/photos?albumId=${payload.id}`
     }else if(payload.router == 'albums'){
-        route = `/albums/${payload.id}`
+        route = `/albums/`
     }else if(payload.router == 'posts'){
-        route = `/posts/${payload.id}`
+        route = `/posts/`
     }else if(payload.router == 'comments'){
-        route = `/comments/${payload.id}`
+        route = `/comments?postId=${payload.id}`
     }
     return {
         method: 'get',
         route
     }
-
 }
 
 const actions = {
-    async loadResource({commit}, payload){
+    async loadList({commit}, payload){
         let params = assign(payload)
         nuevo.runWithoutParams(params)
-            .then(res => {
-                console.log(res)       
-                commit('SET_RESOURCE', res)
+            .then(res => {       
+                commit('SET_LIST', res)
             })
     }
 }
 
 
 const mutations = {
-    SET_RESOURCE (state, resource) {
-        state.resource = resource
+    SET_LIST (state, list) {
+        state.list = list
     }
 }   
     

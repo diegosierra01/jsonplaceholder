@@ -8,14 +8,14 @@
                         <b-col cols="8">
                             <b-list-group>
                                 <router-link :to="{ name: 'albums', params: {albumId:item.id, id:1} }" 
-                                    v-for="(item, index) of galery.galery" :key="index">
+                                    v-for="(item, index) of list.list" :key="index">
                                         <b-list-group-item>{{ item.title }}</b-list-group-item>
                                 </router-link>
                             </b-list-group>
                         </b-col>
                         <b-col cols="4">
                             <b-list-group>
-                                <b-link v-for="(item, index) in galery.galery" :key="index">
+                                <b-link v-for="(item, index) in list.list" :key="index">
                                     <b-list-group-item>{{ item.id }}</b-list-group-item>
                                 </b-link>
                             </b-list-group> 
@@ -31,12 +31,16 @@ import {mapState} from 'vuex'
 
 export default {
     mounted() {
-        this.$store.dispatch('loadGalery') 
+        let router =  'albums';
+        let params = {
+            router
+        };
+        this.$store.dispatch('loadList', params) 
     },
     computed: {
         ...mapState([
-            'galery'
+            'list'
         ])
-    }   
+    }  
 }
 </script>

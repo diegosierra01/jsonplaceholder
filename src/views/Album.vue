@@ -6,7 +6,7 @@
             <b-row>
                 <b-col>
                     <router-link :to="{ name: 'albums', params: {albumId:item.albumId, id:item.id} }" 
-                        v-for="(item, index) of album.album" :key="index">
+                        v-for="(item, index) of list.list" :key="index">
                         <b-img thumbnail fluid v-bind:src="item.thumbnailUrl" alt="Image 1"></b-img>
                     </router-link>
                 </b-col>
@@ -15,7 +15,6 @@
                 </b-col>
             </b-row>
         </b-container>
-        
     </div>   
 </template>
 
@@ -29,12 +28,18 @@ export default {
         Fotos,
     },
     mounted() {
-        this.$store.dispatch('loadAlbum', this.$route.params.albumId) 
+        let id = this.$route.params.albumId;
+        let router =  'fotos';
+        let params = {
+            id,
+            router
+        };
+        this.$store.dispatch('loadList', params) 
     },
     computed: {
         ...mapState([
-            'album'
+            'list'
         ])
-    }   
+    }     
 }
 </script>

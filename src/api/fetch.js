@@ -18,7 +18,7 @@ axios.interceptors.request.use((config) => {
 });
 
 //POST Y PUT
-export function fetchData(url, params, method) {
+export function fetchData(method, url, params) {
 	return new Promise((resolve, reject) => {
 		axios.post(url, params)
 			.then(response => {
@@ -33,7 +33,7 @@ export function fetchData(url, params, method) {
 }
 
 //GET Y DELETE
-export function fetch(url, param, method) {
+export function fetch(method, url, param) {
 	console.log(method)
 	return new Promise((resolve, reject) => {	   
 		axios.get(url, {
