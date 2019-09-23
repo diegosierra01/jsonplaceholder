@@ -21,7 +21,7 @@ export default new Router({
             path: '/galery',
             name: 'galery',
             component: () => import('./views/Galery.vue')
-        },
+        }
         
     ]
 })

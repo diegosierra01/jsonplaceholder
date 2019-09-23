@@ -3,7 +3,8 @@ import Resource from '@/api/resource.js'
 var nuevo = new Resource()
 
 const state = {
-    resource: []
+    resource: [],
+    type: 'read'
 }
 
 function assign(payload){
@@ -38,7 +39,10 @@ const actions = {
 
 const mutations = {
     SET_RESOURCE (state, resource) {
-        state.resource = resource
+        state.resource = resource      
+    },
+    MODIFY_TYPE (state, type) {
+        state.type = type      
     }
 }   
     

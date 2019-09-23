@@ -7,7 +7,7 @@
                     <b-row class="text-center">            
                         <b-col cols="8">
                             <b-list-group>
-                                <router-link :to="{ name: 'albums', params: {albumId:item.id, id:1} }" 
+                                <router-link :to="{ name: 'albums', params: {albumId:item.id, id:0} }" 
                                     v-for="(item, index) of list.list" :key="index">
                                         <b-list-group-item>{{ item.title }}</b-list-group-item>
                                 </router-link>

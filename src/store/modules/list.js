@@ -3,7 +3,8 @@ import Resource from '@/api/resource.js'
 var nuevo = new Resource()
 
 const state = {
-    list: []
+    list: [],
+    type: ''
 }
 
 function assign(payload){
@@ -15,7 +16,7 @@ function assign(payload){
     }else if(payload.router == 'posts'){
         route = `/posts/`
     }else if(payload.router == 'comments'){
-        route = `/comments?postId=${payload.id}`
+        route = `/comments?postId=${paylWoad.id}`
     }
     return {
         method: 'get',
@@ -37,6 +38,10 @@ const actions = {
 const mutations = {
     SET_LIST (state, list) {
         state.list = list
+    },
+    MODIFY_TYPE (state, type) {
+        state.type = type 
+        console.log(state.type)     
     }
 }   
     
