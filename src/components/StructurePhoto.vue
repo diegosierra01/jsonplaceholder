@@ -53,8 +53,9 @@ export default {
     },
     methods: {
         onSubmit(evt) {
+            this.$store.dispatch('createResource')
             evt.preventDefault()
-            alert(JSON.stringify(this.form))
+//            alert(JSON.stringify(this.form))
         },
         onReset(evt) {
             evt.preventDefault()
